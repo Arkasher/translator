@@ -1,5 +1,5 @@
 # translator
-A Translator that use many API's to centralize requests
+A Translator that "learn" with external API's.
 
 With this project you can register multiple translators.
 <br>
