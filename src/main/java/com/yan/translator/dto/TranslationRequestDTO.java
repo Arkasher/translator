@@ -1,11 +1,12 @@
 package com.yan.translator.dto;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class TranslationRequestDTO implements Serializable {
 
-    @NotNull
+    @NotNull @NotEmpty
     private String userKey;
 
     @NotNull
@@ -14,7 +15,7 @@ public class TranslationRequestDTO implements Serializable {
     @NotNull
     private long languageToId;
 
-    @NotNull
+    @NotNull @NotEmpty
     private String word;
 
     public TranslationRequestDTO() {
@@ -59,5 +60,13 @@ public class TranslationRequestDTO implements Serializable {
         this.word = word;
     }
 
-
+    @Override
+    public String toString() {
+        return "{" +
+                "userKey='" + userKey + '\'' +
+                ", languageFromId=" + languageFromId +
+                ", languageToId=" + languageToId +
+                ", word='" + word + '\'' +
+                '}';
+    }
 }

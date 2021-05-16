@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     public boolean isKeyValidToRequest(String userKey) {
-        return true;
+        return false;
     }
 
 }

@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,11 +36,7 @@ public class TranslationWordController {
 
     @Cacheable(value = "post-translate")
     @PostMapping("/translate")
-    public String translate(@RequestBody TranslationRequestDTO translationRequestDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().build().toString();
-        }
-
+    public String translate(@RequestBody @Valid TranslationRequestDTO translationRequestDTO) {
         if(!userService.isKeyValidToRequest(translationRequestDTO.getUserKey())) {
             return ResponseEntity.status(429).build().toString();
         }
